@@ -2,8 +2,12 @@ import functools
 
 from django.views.generic.base import TemplateResponseMixin
 
-def pjax(pjax_template=None):
+
+def pjax(pjax_template=None, pjax_container=None):
     def pjax_decorator(view):
+        view._pjax_templates = getattr(view, '_pjax_templates', {})
+        view._pjax_templates[pjax_container] = pjax_template
+
         @functools.wraps(view)
         def _view(request, *args, **kwargs):
             resp = view(request, *args, **kwargs)
@@ -12,6 +16,10 @@ def pjax(pjax_template=None):
             #     warnings.warn("@pjax used with non-template-response view")
             #     return resp
             if request.META.get('HTTP_X_PJAX', False):
+                pjax_container = request.META.get('HTTP_X_PJAX_CONTAINER', None)
+                default_pjax_template = view._pjax_templates.get(None, None)
+                pjax_template = view._pjax_templates.get(pjax_container, default_pjax_template)
+
                 if pjax_template:
                     resp.template_name = pjax_template
                 else:
@@ -19,6 +27,7 @@ def pjax(pjax_template=None):
             return resp
         return _view
     return pjax_decorator
+
 
 def pjaxtend(parent='base.html', pjax_parent='pjax.html', context_var='parent'):
     def pjaxtend_decorator(view):
@@ -36,6 +45,7 @@ def pjaxtend(parent='base.html', pjax_parent='pjax.html', context_var='parent'):
             return resp
         return _view
     return pjaxtend_decorator
+
 
 class PJAXResponseMixin(TemplateResponseMixin):
 
