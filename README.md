@@ -1,8 +1,6 @@
-# django-pjax
+# django-pjax [![Build Status](https://travis-ci.org/eventials/django-pjax.svg?branch=master)](https://travis-ci.org/eventials/django-pjax) [![Version](https://img.shields.io/pypi/v/nine.svg)](https://pypi.python.org/pypi/dj-pjax)
 
 This is a Django helper for [defunkt’s jquery-pjax].
-
-Django-PJAX requires Django 1.3.
 
 
 ## Credits
@@ -13,9 +11,18 @@ This project is an extension of [Django-PJAX] and all credits from the original 
 ## About
 
 This project keeps the original structure, but add new features to it, and aims to keep django-pjax updated.
-Some goals are to keep this project working with Python 2.7+ and 3.3+ and also Django 1.5+, some not supported yet.
+Some goals are to keep this project working with Python 2.7+ and 3.3+ and also Django 1.5+.
 
 Feel free to submit a PR and contribute to this project.
+
+
+## Compatibility
+
+- Python 2.7+
+- Django 1.3+
+
+Not tested with all versions, but it works with the majors versions of Python 2.7 and Python 3. It also works with Django 1.8.
+
 
 ## What’s PJAX?
 
