@@ -5,9 +5,9 @@ except ImportError:
 
 
 setup(
-    name='django-pjax',
+    name='dj-pjax',
     version='1.0',
-    description='A Django helper for jQuery-PJAX.',
+    description='An improvement of Django-PJAX: The Django helper for jQuery-PJAX.',
     license='BSD',
     url='https://github.com/eventials/django-pjax',
     author='Jacob Kaplan-Moss',
@@ -24,9 +24,8 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
-        'Programming Language :: Python :: 2.5',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
         'Programming Language :: Python',
     ),
 )
