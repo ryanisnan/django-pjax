@@ -1,6 +1,10 @@
 import functools
+import sys
 
 from django.views.generic.base import TemplateResponseMixin
+
+if sys.version_info[0] > 2:
+    basestring = str
 
 
 def pjax(pjax_template=None, pjax_container=None):
