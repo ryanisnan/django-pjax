@@ -2,3 +2,5 @@
 *.pyc
 .coverage
 dist/
+venv/
+venvpy3/
