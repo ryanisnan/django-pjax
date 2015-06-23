@@ -1,28 +1,6 @@
-# django-pjax [![Build Status](https://travis-ci.org/eventials/django-pjax.svg?branch=master)](https://travis-ci.org/eventials/django-pjax) [![Version](https://img.shields.io/pypi/v/nine.svg)](https://pypi.python.org/pypi/dj-pjax)
+# django-pjax [![Build Status](https://travis-ci.org/eventials/django-pjax.svg?branch=master)](https://travis-ci.org/eventials/django-pjax) [![Version](https://img.shields.io/pypi/v/dj-pjax.svg)](https://pypi.python.org/pypi/dj-pjax)
 
-This is a Django helper for [defunkt’s jquery-pjax].
-
-
-## Credits
-
-This project is an extension of [Django-PJAX] and all credits from the original version goes to [Jacob Kaplan-Moss].
-
-
-## About
-
-This project keeps the original structure, but add new features to it, and aims to keep django-pjax updated.
-Some goals are to keep this project working with Python 2.7+ and 3.3+ and also Django 1.5+.
-
-Feel free to submit a PR and contribute to this project.
-
-
-## Compatibility
-
-- Python 2.7+
-- Django 1.3+
-
-Not tested with all versions, but it works with the majors versions of Python 2.7 and Python 3. It also works with Django 1.8.
-
+An improvement of [Django-PJAX]: The Django helper for jQuery-PJAX.
 
 ## What’s PJAX?
 
@@ -31,6 +9,31 @@ It lets you load just a portion of a page (so things are faster) while still mai
 
 A demo makes more sense, so [check out the one defunkt put together].
 
+## Credits
+
+This project is an extension of [Django-PJAX] and all credits from the original version goes to [Jacob Kaplan-Moss].
+
+## About
+
+This project keeps the original structure, but add new features to it, and aims to keep django-pjax updated.
+Some goals are to keep this project working with Python 2.7+ and 3.3+ and also Django 1.5+.
+
+Feel free to submit a PR and contribute to this project.
+
+## Compatibility
+
+- Python 2.6+ or 3.2+
+- PyPy or PyPy3
+- CPython
+- Django 1.3+
+
+Not all Django versions works with Python, PyPy or CPython. See the Django docs to know more about supported versions.
+
+## Install
+
+Just run:
+
+`pip install dj-pjax`
 
 ## Usage
 
@@ -94,7 +97,6 @@ class MyView(PJAXResponseMixin, View):
 
 That’s it!
 
-
 ## Using Template Extensions
 
 If the content in your `template-pjax.html` file is very similar to your `template.html` an alternative method of operation is to use the decorator `pjaxtend`, as follows:
@@ -147,17 +149,15 @@ Which would require the following in your template:
 ...
 ```
 
-
 ## Testing
 
-Tests are run using nosetests. To install:
+Install dependencies:
 
-`pip install nose`
+`pip install -r requirements.txt`
 
-And to run the tests:
+Run the tests:
 
-`nosetests tests.py`
-
+`python tests.py`
 
   [defunkt’s jquery-pjax]: https://github.com/defunkt/jquery-pjax
   [AHAH]: http://www.xfront.com/microformats/AHAH.html
