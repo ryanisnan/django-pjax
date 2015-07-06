@@ -50,7 +50,7 @@ Install
 
 Just run:
 
-``pip install dj-pjax``
+``pip install django-pjax``
 
 Usage
 -----
@@ -201,5 +201,5 @@ Run the tests:
 
 .. |Build Status| image:: https://travis-ci.org/eventials/django-pjax.svg?branch=master
    :target: https://travis-ci.org/eventials/django-pjax
-.. |Version| image:: https://img.shields.io/pypi/v/dj-pjax.svg
-   :target: https://pypi.python.org/pypi/dj-pjax
+.. |Version| image:: https://img.shields.io/pypi/v/django-pjax.svg
+   :target: https://pypi.python.org/pypi/django-pjax

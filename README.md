@@ -1,4 +1,4 @@
-# django-pjax [![Build Status](https://travis-ci.org/eventials/django-pjax.svg?branch=master)](https://travis-ci.org/eventials/django-pjax) [![Version](https://img.shields.io/pypi/v/dj-pjax.svg)](https://pypi.python.org/pypi/dj-pjax)
+# django-pjax [![Build Status](https://travis-ci.org/eventials/django-pjax.svg?branch=master)](https://travis-ci.org/eventials/django-pjax) [![Version](https://img.shields.io/pypi/v/django-pjax.svg)](https://pypi.python.org/pypi/django-pjax)
 
 An improvement of [Django-PJAX]: The Django helper for jQuery-PJAX.
 
@@ -33,7 +33,7 @@ Not all Django versions works with Python, PyPy or CPython. See the Django docs 
 
 Just run:
 
-`pip install dj-pjax`
+`pip install django-pjax`
 
 ## Usage
 
