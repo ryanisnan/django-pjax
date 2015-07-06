@@ -10,9 +10,9 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    name='dj-pjax',
-    version='1.0',
-    description='An improvement of Django-PJAX: The Django helper for jQuery-PJAX.',
+    name='django-pjax',
+    version='1.3',
+    description='Django-PJAX: The Django helper for jQuery-PJAX.',
     license='BSD',
     long_description=read('README.rst'),
     url='https://github.com/eventials/django-pjax',
