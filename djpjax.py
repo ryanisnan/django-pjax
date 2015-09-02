@@ -58,7 +58,9 @@ class PJAXResponseMixin(TemplateResponseMixin):
     def get_template_names(self):
         names = super(PJAXResponseMixin, self).get_template_names()
         if self.request.META.get('HTTP_X_PJAX', False):
-            if self.pjax_template_name:
+            if hasattr(self, 'get_pjax_template_name'):
+                names = [self.get_pjax_template_name()]
+            elif self.pjax_template_name:
                 names = [self.pjax_template_name]
             else:
                 names = _pjaxify_template_var(names)

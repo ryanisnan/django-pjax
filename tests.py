@@ -95,6 +95,24 @@ class TestPjax(unittest.TestCase):
         self.assertEqual(resp.template_name, "template.html")
         self.assertEqual(resp.context_data['my_parent'], "parent-pjax.html")
 
+    def test_class_with_callable_pjax_template(self):
+        view = CallablePJAXTemplateView.as_view()
+        request_1 = rf.get('/item/1/')
+        request_2 = rf.get('/item/1/', HTTP_X_PJAX=True)
+
+        request_3 = rf.get('/item/2/')
+        request_4 = rf.get('/item/2/', HTTP_X_PJAX=True)
+
+        resp_1 = view(request_1)
+        resp_2 = view(request_2)  # Pjax
+        resp_3 = view(request_3)
+        resp_4 = view(request_4)  # Pjax
+
+        self.assertEqual(resp_1.template_name[0], "template.html")
+        self.assertEqual(resp_2.template_name[0], "template-1-pjax.html")
+        self.assertEqual(resp_3.template_name[0], "template.html")
+        self.assertEqual(resp_4.template_name[0], "template-2-pjax.html")
+
 
 # The test "views" themselves.
 
@@ -155,6 +173,19 @@ class SillyTemplateNameView(djpjax.PJAXResponseMixin, View):
 class PJAXTemplateView(djpjax.PJAXResponseMixin, View):
     template_name = 'template.html'
     pjax_template_name = 'pjax.html'
+
+    def get(self, request):
+        return self.render_to_response({})
+
+
+class CallablePJAXTemplateView(djpjax.PJAXResponseMixin, View):
+    template_name = 'template.html'
+
+    def get_pjax_template_name(self):
+        if '1' in self.request.path:
+            return 'template-1-pjax.html'
+        elif '2' in self.request.path:
+            return 'template-2-pjax.html'
 
     def get(self, request):
         return self.render_to_response({})
